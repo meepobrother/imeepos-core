@@ -6,6 +6,8 @@ import { ImeeposRootPage } from './root/root';
 import { ImeeposEmptyPage } from './empty/empty';
 import { CoreLoadingService } from './core/core.loading';
 import { CoreDebugerService } from './core/core.debuger';
+import { CoreConfigDefault, CoreConfigInterface, CORE_TOKEN } from './core/core.config';
+
 import { Routes } from '@angular/router/src/config';
 
 let routes: Routes = [{
@@ -31,12 +33,16 @@ export class ImeeposCoreModule {
                 'CoreModule is already loaded. Import it in the main.ts only');
         }
     }
-    public static forRoot(): ModuleWithProviders {
+    public static forRoot(cfg: CoreConfigInterface = CoreConfigDefault): ModuleWithProviders {
         return {
             ngModule: ImeeposCoreModule,
             providers: [
                 CoreLoadingService,
-                CoreDebugerService
+                CoreDebugerService,
+                {
+                    provide: CORE_TOKEN,
+                    useValue: cfg
+                }
             ]
         }
     }
@@ -44,3 +50,5 @@ export class ImeeposCoreModule {
 export { CorePage } from './core/core.page';
 export { ImeeposRootPage } from './root/root';
 export { CoreDebugerService } from './core/core.debuger';
+export { CoreConfigDefault, CoreConfigInterface, CORE_TOKEN } from './core/core.config';
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { CorePage } from '../core/core.page';
 import { CoreDebugerService } from '../core/core.debuger';
 
@@ -8,8 +8,9 @@ import { CoreDebugerService } from '../core/core.debuger';
 })
 export class ImeeposEmptyPage extends CorePage {
     constructor(
-        public log: CoreDebugerService
+        injector: Injector
     ) {
-        super(log, 'ImeeposEmptyPage');
+        super(injector, 'ImeeposEmptyPage');
+        this.setDebuger(false);
     }
 }
