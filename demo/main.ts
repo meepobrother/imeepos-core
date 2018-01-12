@@ -9,9 +9,5 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .then(ref=>{
-    console.log(`
-      欢迎来到米波
-    `);
-  })
+  .then(ref => { })
   .catch(err => console.log(err));

@@ -4,13 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ImeeposRootPage } from './root/root';
 import { ImeeposEmptyPage } from './empty/empty';
+import { CoreLoadingService } from './core/core.loading';
+import { CoreDebugerService } from './core/core.debuger';
+import { Routes } from '@angular/router/src/config';
+
+let routes: Routes = [{
+    path: "**",
+    component: ImeeposEmptyPage
+}];
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot([{
-            path: "**",
-            component: ImeeposEmptyPage
-        }], {
+        RouterModule.forRoot(routes, {
             useHash: true
         })
     ],
@@ -28,12 +33,14 @@ export class ImeeposCoreModule {
     }
     public static forRoot(): ModuleWithProviders {
         return {
-            ngModule: ImeeposCoreModule
+            ngModule: ImeeposCoreModule,
+            providers: [
+                CoreLoadingService,
+                CoreDebugerService
+            ]
         }
     }
 }
-export { CorePage } from './core.page';
+export { CorePage } from './core/core.page';
 export { ImeeposRootPage } from './root/root';
-
-
-
+export { CoreDebugerService } from './core/core.debuger';
