@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 export class CoreLoadingService {
     loading: HTMLElement;
     constructor(
-        @Inject(DOCUMENT) private doc: any
+        @Inject(DOCUMENT) private doc: Document
     ) {
         this.createLoading();
         this.show();
