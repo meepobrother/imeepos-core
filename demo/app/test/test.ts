@@ -12,5 +12,6 @@ export class TestPage extends CorePage {
         super(injector, 'test');
     }
     ngAfterContentInit() {
+
     }
 }
