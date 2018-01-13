@@ -51,6 +51,7 @@
         "zone.js": "0.8.4"
     },
     "dependencies": {
+        "@angular/animations": "^5.2.0",
         "meepo-bmap": "^4.0.9",
         "meepo-event": "^1.2.4",
         "meepo-loader": "^1.1.8",

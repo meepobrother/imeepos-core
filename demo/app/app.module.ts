@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { LazyModule } from './lazy.module';
 import { EventModule } from 'meepo-event';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { EventModule } from 'meepo-event';
       }),
     LazyModule,
     ICoreModule.forRoot(),
-    EventModule.forRoot()
+    EventModule.forRoot(),
+    BrowserAnimationsModule
   ],
   bootstrap: [IRootPage]
 })

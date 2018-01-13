@@ -1,4 +1,7 @@
 ## imeepos core for angular
+
+- [路由插座]('./docs/routes.md')
+
 - 核心
 ```ts
 import { ICoreModule, IRootPage } from '../../src/app/app';

@@ -29,7 +29,7 @@ export class CoreLoadingService {
     }
 
     show(): void {
-        this.isShow = true;
+        // this.isShow = true;
     }
 
     hide(): void {

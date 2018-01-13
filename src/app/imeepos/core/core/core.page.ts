@@ -26,7 +26,9 @@ import { CoreDebugerService } from './core.debuger';
 import { CoreLoadingService } from './core.loading';
 import { CoreConfigInterface, CORE_TOKEN } from './core.config';
 import { Router } from '@angular/router';
-export class CorePage implements OnInit, AfterContentInit, AfterContentChecked, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit {
+export class CorePage 
+    // implements OnInit, AfterContentInit, AfterContentChecked, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit 
+{
     @HostBinding('class.core-page') _page: boolean = true;
     config: CoreConfigInterface;
     log: CoreDebugerService;
@@ -48,35 +50,35 @@ export class CorePage implements OnInit, AfterContentInit, AfterContentChecked, 
     }
 
     // 1
-    ngOnInit() {
-        this.isDev && this.log.log(`${this.__pageName}.ngOnInit`);
-    }
+    // ngOnInit() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngOnInit`);
+    // }
     // 2
-    ngDoCheck() {
-        this.isDev && this.log.log(`${this.__pageName}.ngDoCheck`);
-    }
+    // ngDoCheck() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngDoCheck`);
+    // }
     // 3
-    ngAfterContentInit() {
-        this.isDev && this.log.log(`${this.__pageName}.ngAfterContentInit`);
-    }
+    // ngAfterContentInit() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngAfterContentInit`);
+    // }
     // ngAfterContentChecked后属性值不能改变
-    ngAfterContentChecked() {
-        this.isDev && this.log.log(`${this.__pageName}.ngAfterContentChecked`);
-    }
+    // ngAfterContentChecked() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngAfterContentChecked`);
+    // }
     // 5
-    ngAfterViewInit() {
-        this.isDev && this.log.log(`${this.__pageName}.ngAfterViewInit`);
-    }
+    // ngAfterViewInit() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngAfterViewInit`);
+    // }
     // 6
-    ngAfterViewChecked() {
-        this.isDev && this.log.log(`${this.__pageName}.ngAfterViewChecked`);
-    }
+    // ngAfterViewChecked() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngAfterViewChecked`);
+    // }
     // 7
-    ngOnChanges(changes: SimpleChanges) {
-        this.isDev && this.log.log(`${this.__pageName}.ngOnChanges`);
-    }
+    // ngOnChanges(changes: SimpleChanges) {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngOnChanges`);
+    // }
     // 8
-    ngOnDestroy() {
-        this.isDev && this.log.log(`${this.__pageName}.ngOnDestroy`);
-    }
+    // ngOnDestroy() {
+    //     this.isDev && this.log.log(`${this.__pageName}.ngOnDestroy`);
+    // }
 }
