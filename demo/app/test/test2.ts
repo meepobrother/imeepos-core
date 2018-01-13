@@ -2,12 +2,12 @@ import { Component, NgModule, Injector } from '@angular/core';
 import { CorePage, ICoreModule } from '../../../src/app/app';
 
 @Component({
-    selector: 'test',
+    selector: 'test2',
     template: `
-        <a (click)="toTest2()">toTest2</a>
+        <a (click)="toTest()">toTest</a>
     `
 })
-export class TestPage extends CorePage {
+export class Test2Page extends CorePage {
     constructor(
         injector: Injector
     ) {
@@ -24,25 +24,24 @@ export class TestPage extends CorePage {
         setTimeout(() => {
             this.loading.hide();
         }, 1000);
-        
     }
 
-    toTest2(){
-        this.router.navigate(['test2'])
+    toTest() {
+        this.router.navigate(['test'])
     }
 }
 
 
 @NgModule({
-  imports: [
-    ICoreModule.forChild([{
-      path: '',
-      component: TestPage
-    }])
-  ],
-  declarations: [
-    TestPage
-  ],
-  exports: [TestPage],
+    imports: [
+        ICoreModule.forChild([{
+            path: '',
+            component: Test2Page
+        }])
+    ],
+    declarations: [
+        Test2Page
+    ],
+    exports: [Test2Page],
 })
-export class TestModule { }
+export class Test2Module { }

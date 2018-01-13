@@ -11,14 +11,21 @@ export class CoreLoadingService {
     }
 
     show(): void {
-        this.doc.body.appendChild(this.loading);
+        if (!this.check()) {
+            this.doc.body.appendChild(this.loading);
+        }
     }
 
     hide(): void {
         let loading = this.doc.body.getElementsByClassName('loading-container');
-        if (loading && loading.length) {
-            this.doc.body.removeChild(this.loading);
+        if (this.check()) {
+            this.doc.body.removeChild(loading[0]);
         }
+    }
+
+    check(): boolean {
+        let loading = this.doc.body.getElementsByClassName('loading-container');
+        return loading && loading.length > 0;
     }
 
     createLoading(): HTMLElement {

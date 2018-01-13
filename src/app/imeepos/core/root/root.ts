@@ -3,23 +3,26 @@ import { CorePage } from '../core/core.page';
 import { CoreLoadingService } from '../core/core.loading';
 import { CoreDebugerService } from '../core/core.debuger';
 import { CORE_TOKEN } from '../core/core.config';
+import { Router, ChildActivationStart, ChildActivationEnd } from '@angular/router';
 @Component({
-    selector: 'body',
+    selector: 'i-root',
     templateUrl: './root.html'
 })
 export class IRootPage extends CorePage {
     constructor(
-        public loading: CoreLoadingService,
-        injector: Injector
+        injector: Injector,
+        public router: Router
     ) {
         super(injector, 'ImeeposRootPage');
         this.setDebuger(false);
-    }
 
-    ngOnInit(){
-    }
-
-    ngAfterViewChecked() {
-        this.loading.hide();
+        this.router.events.subscribe(e => {
+            if (e instanceof ChildActivationStart) { 
+                this.loading.show();
+            }
+            if (e instanceof ChildActivationEnd) { 
+                // this.loading.hide();
+            }
+        })
     }
 }

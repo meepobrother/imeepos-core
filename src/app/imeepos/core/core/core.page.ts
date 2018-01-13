@@ -22,11 +22,14 @@ import {
     Injector
 } from '@angular/core';
 import { CoreDebugerService } from './core.debuger';
+import { CoreLoadingService } from './core.loading';
 import { CoreConfigInterface, CORE_TOKEN } from './core.config';
-
+import { Router } from '@angular/router';
 export class CorePage implements OnInit, AfterContentInit, AfterContentChecked, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit {
     config: CoreConfigInterface;
     log: CoreDebugerService;
+    loading: CoreLoadingService;
+    router: Router;
     private isDev: boolean = true;
     constructor(
         public injector: Injector,
@@ -34,6 +37,8 @@ export class CorePage implements OnInit, AfterContentInit, AfterContentChecked, 
     ) {
         this.config = this.injector.get(CORE_TOKEN);
         this.log = this.injector.get(CoreDebugerService);
+        this.loading = this.injector.get(CoreLoadingService);
+        this.router = this.injector.get(Router);
     }
 
     setDebuger(isDev: boolean) {

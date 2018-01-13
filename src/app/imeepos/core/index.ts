@@ -25,6 +25,7 @@ let meepoRoutes: Routes = [{
     exports: [
         IRootPage,
         ImeeposEmptyPage,
+        CommonModule
     ]
 })
 export class ICoreModule {
