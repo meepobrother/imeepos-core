@@ -25,7 +25,8 @@
   "files": [
     "./app/app.module.ts",
     "./main.ts",
-    "./polyfills.ts"
+    "./polyfills.ts",
+    "./app/test/test.module.ts"
   ],
   "angularCompilerOptions": {
    "genDir": "aot",

@@ -7,13 +7,16 @@ import { CORE_TOKEN } from '../core/core.config';
     selector: 'body',
     templateUrl: './root.html'
 })
-export class ImeeposRootPage extends CorePage {
+export class IRootPage extends CorePage {
     constructor(
         public loading: CoreLoadingService,
         injector: Injector
     ) {
         super(injector, 'ImeeposRootPage');
         this.setDebuger(false);
+    }
+
+    ngOnInit(){
     }
 
     ngAfterViewChecked() {
