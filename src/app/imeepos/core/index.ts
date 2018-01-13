@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { Routes, ROUTES } from '@angular/router';
 
 let meepoRoutes: Routes = [{
-    path: "**",
+    path: "empty",
     component: ImeeposEmptyPage
 }];
 

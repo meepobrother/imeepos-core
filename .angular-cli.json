@@ -21,7 +21,8 @@
             "prefix": "app",
             "styles": [
                 "styles.scss",
-                "../src/app/app.css"
+                "../src/app/app.css",
+                "../node_modules/meepo-bmap/app.css"
             ],
             "scripts": [],
             "environmentSource": "environments/environment.ts",
