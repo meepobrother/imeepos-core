@@ -19,13 +19,15 @@ import {
     ContentChildren,
     ElementRef,
     ChangeDetectionStrategy,
-    Injector
+    Injector,
+    HostBinding
 } from '@angular/core';
 import { CoreDebugerService } from './core.debuger';
 import { CoreLoadingService } from './core.loading';
 import { CoreConfigInterface, CORE_TOKEN } from './core.config';
 import { Router } from '@angular/router';
 export class CorePage implements OnInit, AfterContentInit, AfterContentChecked, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit {
+    @HostBinding('class.core-page') _page: boolean = true;
     config: CoreConfigInterface;
     log: CoreDebugerService;
     loading: CoreLoadingService;

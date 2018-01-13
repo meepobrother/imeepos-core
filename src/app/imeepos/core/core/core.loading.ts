@@ -1,8 +1,26 @@
-import { Injectable, ElementRef, Inject } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 @Injectable()
 export class CoreLoadingService {
-    loading: HTMLElement;
+    _loading: any;
+    get loading() {
+        return this.doc.body.getElementsByClassName('loading-wrap')[0]
+    }
+
+    set loading(val: any) {
+        this._loading = val;
+    }
+
+    set isShow(val: boolean) {
+        if (val) {
+            this.loading.classList.remove('hidden');
+            this.loading.classList.add('shown');
+        } else {
+            this.loading.classList.remove('shown');
+            this.loading.classList.add('hidden');
+        }
+    }
+
     constructor(
         @Inject(DOCUMENT) private doc: Document
     ) {
@@ -11,40 +29,20 @@ export class CoreLoadingService {
     }
 
     show(): void {
-        if (!this.check()) {
-            this.doc.body.appendChild(this.loading);
-        }
+        this.isShow = true;
     }
 
     hide(): void {
-        let loading = this.doc.body.getElementsByClassName('loading-container');
-        if (this.check()) {
-            this.doc.body.removeChild(loading[0]);
-        }
-    }
-
-    check(): boolean {
-        let loading = this.doc.body.getElementsByClassName('loading-container');
-        return loading && loading.length > 0;
+        this.isShow = false;
     }
 
     createLoading(): HTMLElement {
         this.loading = this.doc.createElement('div');
-        this.loading.className = 'loading-container';
-        this.loading.innerHTML = `<div class="sk-circle">
-            <div class="sk-circle1 sk-child"></div>
-            <div class="sk-circle2 sk-child"></div>
-            <div class="sk-circle3 sk-child"></div>
-            <div class="sk-circle4 sk-child"></div>
-            <div class="sk-circle5 sk-child"></div>
-            <div class="sk-circle6 sk-child"></div>
-            <div class="sk-circle7 sk-child"></div>
-            <div class="sk-circle8 sk-child"></div>
-            <div class="sk-circle9 sk-child"></div>
-            <div class="sk-circle10 sk-child"></div>
-            <div class="sk-circle11 sk-child"></div>
-            <div class="sk-circle12 sk-child"></div>
-        </div>`;
+        this.loading.className = 'loading-wrap animated';
+        this.loading.innerHTML = `<div class="loading-container">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>`;
         return this.loading;
     }
 }

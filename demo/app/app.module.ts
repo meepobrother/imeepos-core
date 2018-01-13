@@ -6,12 +6,16 @@ import { LazyModule } from './lazy.module';
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], {
-      useHash: true
-    }),
+    RouterModule.forRoot([{
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'test'
+    }], {
+        useHash: true
+      }),
     LazyModule,
     ICoreModule.forRoot()
-  ],  
+  ],
   bootstrap: [IRootPage]
 })
 export class AppModule { }
