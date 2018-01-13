@@ -23,8 +23,7 @@ export class TestPage extends CorePage {
         // 隐藏loading
         setTimeout(() => {
             this.loading.hide();
-        }, 1000);
-        
+        }, 600);
     }
 
     toTest2(){

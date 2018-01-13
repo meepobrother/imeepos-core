@@ -13,4 +13,10 @@ export class ImeeposEmptyPage extends CorePage {
         super(injector, 'ImeeposEmptyPage');
         this.setDebuger(false);
     }
+
+    ngAfterContentInit() {
+        setTimeout(() => {
+            this.loading.hide();
+        }, 600);
+    }
 }
